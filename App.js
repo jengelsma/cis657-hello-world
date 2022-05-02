@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import Greeter from './components/Greeter';
 import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
-      <StatusBar style="auto" />
+      <Greeter greeting="Hello World" buttonTitle="Click me" />
+      <Greeter greeting="Hello Universe" buttonTitle="Tap me" />
     </View>
   );
 }
