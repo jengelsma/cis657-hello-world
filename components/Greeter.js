@@ -1,14 +1,33 @@
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Button } from "react-native-elements";
-import React from 'react';
 
 const Greeter = ({greeting, buttonTitle}) => {
+  const [state, setState] = useState({name: '', greeting});
+
+  const updateStateObject = (vals) => {
+    setState({
+      ...state,
+      ...vals,
+    });
+  };
+
+
   return (
     <View style={styles.container}>
-      <Text> {greeting} </Text>
-      <TextInput placeholder='Enter your name' />
-      <Button title={buttonTitle}/>
+      <Text> {state.greeting} </Text>
+      <TextInput 
+        placeholder='Enter your name' 
+        value={state.name}
+        onChangeText={(val) => updateStateObject({name: val})}
+      />
+      <Button 
+        title={buttonTitle}
+        onPress={() => {
+          updateStateObject({greeting: `${greeting} to you ${state.name}!`});
+        }}
+      />
     </View>
   );
 };
