@@ -7,7 +7,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Greeter greeting="Hello World" buttonTitle="Click me" />
-      <Greeter greeting="Hello Universe" buttonTitle="Tap me" />
     </View>
   );
 }
